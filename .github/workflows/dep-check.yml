@@ -1,3 +1,5 @@
+name: Dependency Check
+
 on: [push]
 
 jobs:
@@ -23,7 +25,7 @@ jobs:
             --failOnCVSS 7
             --enableRetired
       - name: Upload Test results
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v4
         with:
           name: Depcheck report
           path: ${{github.workspace}}/reports

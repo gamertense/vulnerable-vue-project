@@ -9,6 +9,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        # Remove package-lock.json to fix CI issue: https://github.com/npm/cli/issues/4828
+      - name: Remove package-lock.json
+        run: |
+          rm package-lock.json
       - name: Build project
         run: |
           npm i
